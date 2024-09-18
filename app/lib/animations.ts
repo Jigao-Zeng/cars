@@ -21,14 +21,9 @@ export const animateCarHeader = () => {
     return;
   }
 
-  // Debugging: Check if GSAP is loaded
   if (!gsap) {
-    console.error("GSAP is not loaded");
     return;
   }
-
-  // Debugging: Log when animation starts
-  console.log("Starting animation for carContainer");
 
   gsap.fromTo(
     header,

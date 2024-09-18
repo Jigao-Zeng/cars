@@ -24,7 +24,6 @@ export default function CarDetails({ car }: { car: Car }) {
 
   return (
     <div className="container mx-auto p-6 max-w-5xl">
-      {/* Car Image */}
       <div className="mb-6">
         <Image
           src={image}
@@ -35,13 +34,11 @@ export default function CarDetails({ car }: { car: Car }) {
         />
       </div>
 
-      {/* Car Title and Price */}
       <div className="flex justify-between items-center mb-6 w-[800px]">
         <h1 className="text-3xl font-bold">{`${year} ${make} ${model}`}</h1>
         <span className="text-2xl font-semibold text-green-600">{`$${price.toLocaleString()}`}</span>
       </div>
 
-      {/* Car Details Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div className="text-lg">
           <p>
@@ -80,7 +77,6 @@ export default function CarDetails({ car }: { car: Car }) {
         </div>
       </div>
 
-      {/* Car Features */}
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Features</h2>
         <ul className="list-disc list-inside">

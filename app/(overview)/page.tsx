@@ -19,7 +19,7 @@ export default async function Home({
       {/* Search Bar */}
       <div className="mt-6 mb-4 flex justify-center">
         <div className="w-full max-w-md relative">
-          <Search placeholder="Search cars by model for example 'Corolla' " />
+          <Search placeholder="Search cars by model such as Corolla... " />
         </div>
       </div>
 

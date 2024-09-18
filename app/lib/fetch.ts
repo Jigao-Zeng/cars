@@ -22,8 +22,8 @@ export async function fetchSearchedCars(query: string) {
     if (!response.ok) {
       throw new Error("Failed to fetch car with id.");
     }
-    const car = await response.json();
-    return car;
+    const cars: Car[] = await response.json();
+    return cars;
   } catch (error) {
     console.error("Fetch car list error:", error);
     throw new Error("Failed to fetch car with id.");
