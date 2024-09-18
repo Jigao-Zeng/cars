@@ -4,7 +4,7 @@ This is a car website, the home page displays a list of cars, the car details pa
 
 - **React with Next.js**
 - **Typescript**
-- **TailwindCSS** for styling
+- **TailwindCSS**
 
 ## Getting Started
 
