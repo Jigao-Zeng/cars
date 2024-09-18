@@ -1,11 +1,9 @@
-import { fetchCarsList, fetchSearchedCars } from "./lib/fetch";
+import { fetchSearchedCars } from "./lib/fetch";
 import { Car } from "./lib/definitions";
 import { capitalize, getDesc } from "./lib/utils";
-import { lusitana } from "./ui/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import Search from "./ui/search";
-import Pagination from "./ui/cars/pagination";
 
 export default async function Home({
   searchParams,
@@ -13,48 +11,60 @@ export default async function Home({
   searchParams?: { query?: string; page?: string };
 }) {
   const query = searchParams?.query || "";
-  const CARS_PER_PAGE = 5;
-  const allCars = await fetchCarsList();
-  const allCarsLength = allCars.length;
-  const totalPages = Math.ceil(Number(allCarsLength) / CARS_PER_PAGE);
-  const cars = await fetchSearchedCars(query, CARS_PER_PAGE);
+
+  const cars = await fetchSearchedCars(query);
+
   return (
     <div className="w-full">
-      <div className="flex w-full items-center justify-between">
-        <h1 className="text-2xl">Our cars</h1>
+      {/* Header Section */}
+      <header className="w-full bg-gray-800 py-4 px-6">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="text-white text-xl">Lovely Cars</div>
+        </div>
+      </header>
+
+      {/* Search Bar */}
+      <div className="mt-6 mb-4 flex justify-center">
+        <div className="w-full max-w-md relative">
+          <Search placeholder="Search cars by model for example 'Corolla' " />
+        </div>
       </div>
 
-      <Search placeholder="Search cars..." />
+      {/* Cars Listing Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {cars.map((c: Car) => {
+          const { make, model, year, mileage, price } = c;
+          const carMains = { make, model, year };
+          const desc = getDesc(c);
+          return (
+            <div className="bg-white shadow-md p-4 rounded-md" key={c.id}>
+              <Image src={c.image} width={400} height={200} alt={desc} />
+              <h2 className="text-lg font-bold mt-2">{desc}</h2>
+              <span className="text-xl font-semibold text-green-600">{`$${price.toLocaleString()}`}</span>
 
-      {cars.map((c: Car) => {
-        const { make, model, year, mileage, price } = c;
-        const carMains = { make, model, year, mileage, price };
-        const desc = getDesc(c);
-        return (
-          <div className="bg-gray-200 px-2 py-2 mt-10 w-150" key={c.id}>
-            <Image src={c.image} width={510} height={200} alt={desc} />
-            <h2 className="text-xl">{desc}</h2>
-
-            <div>
-              {Object.entries(carMains).map(([k, v]) => (
-                <span key={k}>
-                  <span className={`${lusitana.className}`}>
-                    {capitalize(k)}
+              <div className="mt-2">
+                {Object.entries(carMains).map(([k, v]) => (
+                  <p key={k} className="text-gray-600">
+                    <span className="font-semibold">{capitalize(k)}: </span>
+                    {v}
+                  </p>
+                ))}
+                <p className="text-gray-600">
+                  <span className="font-semibold">
+                    {capitalize("mileage")}:{" "}
                   </span>
-                  : <span className={`${lusitana.className}`}>{v}</span>
-                  {", "}
-                </span>
-              ))}
-            </div>
-            <Link href={`/cars/${c.id}`}>
-              <p className="hidden md:block mt-2">View details</p>
-            </Link>
-          </div>
-        );
-      })}
+                  {mileage.toLocaleString()} km
+                </p>
+              </div>
 
-      <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={totalPages} />
+              <Link href={`/cars/${c.id}`}>
+                <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">
+                  View Details
+                </button>
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
