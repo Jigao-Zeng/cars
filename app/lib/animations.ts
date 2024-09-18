@@ -17,11 +17,6 @@ export const animateCarHeader = () => {
   const header = document.getElementById("cars-header");
 
   if (!header) {
-    console.error('Element with id "car-container" not found');
-    return;
-  }
-
-  if (!gsap) {
     return;
   }
 
