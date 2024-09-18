@@ -1,12 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import { animateCarContainer, animateLoadingBar } from "./lib/animations";
+import {
+  animateCarHeader as animateCarHeader,
+  animateLoadingBar,
+} from "./lib/animations";
 
 export default function Template({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     animateLoadingBar();
-    animateCarContainer();
+  }, []);
+
+  useEffect(() => {
+    animateCarHeader();
   }, []);
 
   return (

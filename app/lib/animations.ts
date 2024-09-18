@@ -13,10 +13,10 @@ export const animateLoadingBar = () => {
   });
 };
 
-export const animateCarContainer = () => {
-  const carContainer = document.getElementById("car-container");
+export const animateCarHeader = () => {
+  const header = document.getElementById("cars-header");
 
-  if (!carContainer) {
+  if (!header) {
     console.error('Element with id "car-container" not found');
     return;
   }
@@ -31,8 +31,8 @@ export const animateCarContainer = () => {
   console.log("Starting animation for carContainer");
 
   gsap.fromTo(
-    carContainer,
+    header,
     { opacity: 0 },
-    { opacity: 1, duration: 2, ease: "power1.inOut" }
+    { opacity: 1, duration: 4, ease: "power1.inOut" }
   );
 };

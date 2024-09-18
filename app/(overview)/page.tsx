@@ -15,7 +15,7 @@ export default async function Home({
   const cars = await fetchSearchedCars(query);
 
   return (
-    <div id="car-container" className="w-full">
+    <div className="w-full">
       {/* Search Bar */}
       <div className="mt-6 mb-4 flex justify-center">
         <div className="w-full max-w-md relative">
