@@ -1,9 +1,9 @@
-import { fetchSearchedCars } from "./lib/fetch";
-import { Car } from "./lib/definitions";
-import { capitalize, getDesc } from "./lib/utils";
+import { fetchSearchedCars } from "../lib/fetch";
+import { Car } from "../lib/definitions";
+import { capitalize, getDesc } from "../lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import Search from "./ui/search";
+import Search from "../ui/search";
 
 export default async function Home({
   searchParams,
@@ -15,14 +15,7 @@ export default async function Home({
   const cars = await fetchSearchedCars(query);
 
   return (
-    <div className="w-full">
-      {/* Header Section */}
-      <header className="w-full bg-gray-800 py-4 px-6">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="text-white text-xl">Lovely Cars</div>
-        </div>
-      </header>
-
+    <div id="car-container" className="w-full">
       {/* Search Bar */}
       <div className="mt-6 mb-4 flex justify-center">
         <div className="w-full max-w-md relative">

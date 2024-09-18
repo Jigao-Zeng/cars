@@ -1,21 +1,8 @@
 import { Car } from "./definitions";
 
-export async function fetchCarsList() {
-  try {
-    const response = await fetch("https://freetestapi.com/api/v1/cars");
-    if (!response.ok) {
-      throw new Error("Failed to fetch car list.");
-    }
-    const carsList: Car[] = await response.json();
-    return carsList;
-  } catch (error) {
-    console.error("Fetch car list error:", error);
-    throw new Error("Failed to fetch car list.");
-  }
-}
-
 export async function fetchCarWithId(id: string) {
   try {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     const response = await fetch(`https://freetestapi.com/api/v1/cars/${id}`);
     if (!response.ok) {
       throw new Error("Failed to fetch car with id.");
@@ -30,6 +17,7 @@ export async function fetchCarWithId(id: string) {
 
 export async function fetchSearchedCars(query: string) {
   try {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     const response = await fetch(
       `https://freetestapi.com/api/v1/cars?search=${query}`
     );

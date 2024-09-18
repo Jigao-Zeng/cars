@@ -11,6 +11,7 @@
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "clsx": "^2.1.1",
+    "gsap": "^3.12.5",
     "heroicons": "^2.1.5",
     "next": "14.2.11",
     "react": "^18",
