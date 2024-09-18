@@ -29,12 +29,9 @@ export async function fetchCarWithId(id: string) {
 }
 
 export async function fetchSearchedCars(query: string, limit: number) {
-  if (!query) {
-    return fetchCarsList();
-  }
   try {
     const response = await fetch(
-      `https://freetestapi.com/api/v1/cars?search=${query}?limit=${limit}`
+      `https://freetestapi.com/api/v1/cars?search=${query}&limit=${limit}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch car with id.");

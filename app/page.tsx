@@ -14,7 +14,6 @@ export default async function Home({
 }) {
   const query = searchParams?.query || "";
   const CARS_PER_PAGE = 5;
-  const currentPage = Number(searchParams?.page) || 1;
   const allCars = await fetchCarsList();
   const allCarsLength = allCars.length;
   const totalPages = Math.ceil(Number(allCarsLength) / CARS_PER_PAGE);
