@@ -1,9 +1,9 @@
-import { fetchSearchedCars } from "../lib/fetch";
-import { Car } from "../lib/definitions";
-import { capitalize, getDesc } from "../lib/utils";
+import { fetchSearchedCars } from "./lib/fetch";
+import { Car } from "./lib/definitions";
+import { capitalize, getDesc } from "./lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import Search from "../ui/search";
+import Search from "./ui/search";
 
 export default async function Home({
   searchParams,
