@@ -11,9 +11,11 @@
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
     "heroicons": "^2.1.5",
     "next": "14.2.11",
+    "pg": "^8.13.0",
     "pnpm": "^9.11.0",
     "react": "^18",
     "react-dom": "^18",

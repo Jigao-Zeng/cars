@@ -30,7 +30,7 @@ export default async function Home({
           const carMains = { make, model, year };
           const desc = getDesc(c);
           return (
-            <div className="bg-white shadow-md p-4 rounded-md" key={c.id}>
+            <div className="bg-gray-100 shadow-md p-4 rounded-md" key={c.id}>
               <Image src={c.image} width={400} height={200} alt={desc} />
               <h2 className="text-lg font-bold mt-2">{desc}</h2>
               <span className="text-xl font-semibold text-green-600">{`$${price.toLocaleString()}`}</span>
