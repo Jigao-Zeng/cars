@@ -55,7 +55,7 @@ export default function CarDetails({ car }: { car: Car }) {
           </p>
           <p>
             <span className="font-semibold">Mileage:</span>{" "}
-            {mileage.toLocaleString()} km
+            {mileage?.toLocaleString()} km
           </p>
           <p>
             <span className="font-semibold">Owners:</span> {owners}

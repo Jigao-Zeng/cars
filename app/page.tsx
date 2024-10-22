@@ -1,17 +1,10 @@
-import { fetchAllCars, fetchSearchedCars } from "./lib/fetch";
+import { fetchAllCars } from "./lib/fetch";
 import { Car } from "./lib/definitions";
 import { capitalize, getDesc } from "./lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 import Search from "./ui/search";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams?: { query?: string; page?: string };
-}) {
-  const query = searchParams?.query || "";
-
+export default async function Home() {
   const allCars = await fetchAllCars();
   console.log({ allCars });
 
@@ -34,7 +27,7 @@ export default async function Home({
             <div className="bg-gray-100 shadow-md p-4 rounded-md" key={c.id}>
               {/* <Image src={c?.image} width={400} height={200} alt={desc} /> */}
               <h2 className="text-lg font-bold mt-2">{desc}</h2>
-              <span className="text-xl font-semibold text-green-600">{`$${price.toLocaleString()}`}</span>
+              <span className="text-xl font-semibold text-green-600">{`$${price?.toLocaleString()}`}</span>
 
               <div className="mt-2">
                 {Object.entries(carMains).map(([k, v]) => (
@@ -47,7 +40,7 @@ export default async function Home({
                   <span className="font-semibold">
                     {capitalize("mileage")}:{" "}
                   </span>
-                  {mileage.toLocaleString()} kmmmm
+                  {mileage?.toLocaleString()} kmmmm
                 </p>
               </div>
 

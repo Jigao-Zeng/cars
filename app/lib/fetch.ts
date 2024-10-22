@@ -16,22 +16,6 @@ export async function fetchCarWithId(id: string) {
   }
 }
 
-export async function fetchSearchedCars(query: string) {
-  try {
-    const response = await fetch(
-      `https://freetestapi.com/api/v1/cars?search=${query}`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch car lists, response not ok");
-    }
-    const cars: Car[] = await response.json();
-    return cars;
-  } catch (error) {
-    console.error("Fetch car list error:", error);
-    throw new Error("Failed to fetch car with id.");
-  }
-}
-
 // Create a new pool instance for connecting to your PostgreSQL database
 const pool = new Pool({
   user: "postgres", // Your PostgreSQL username
