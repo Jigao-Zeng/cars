@@ -1,4 +1,4 @@
-import { fetchSearchedCars } from "./lib/fetch";
+import { fetchAllCars, fetchSearchedCars } from "./lib/fetch";
 import { Car } from "./lib/definitions";
 import { capitalize, getDesc } from "./lib/utils";
 import Image from "next/image";
@@ -12,7 +12,8 @@ export default async function Home({
 }) {
   const query = searchParams?.query || "";
 
-  const cars = await fetchSearchedCars(query);
+  const allCars = await fetchAllCars();
+  console.log({ allCars });
 
   return (
     <div className="w-full">
@@ -25,13 +26,13 @@ export default async function Home({
 
       {/* Cars Listing Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        {cars.map((c: Car) => {
+        {allCars.map((c: Car) => {
           const { make, model, year, mileage, price } = c;
           const carMains = { make, model, year };
           const desc = getDesc(c);
           return (
             <div className="bg-gray-100 shadow-md p-4 rounded-md" key={c.id}>
-              <Image src={c.image} width={400} height={200} alt={desc} />
+              {/* <Image src={c?.image} width={400} height={200} alt={desc} /> */}
               <h2 className="text-lg font-bold mt-2">{desc}</h2>
               <span className="text-xl font-semibold text-green-600">{`$${price.toLocaleString()}`}</span>
 
@@ -46,7 +47,7 @@ export default async function Home({
                   <span className="font-semibold">
                     {capitalize("mileage")}:{" "}
                   </span>
-                  {mileage.toLocaleString()} km
+                  {mileage.toLocaleString()} kmmmm
                 </p>
               </div>
 
