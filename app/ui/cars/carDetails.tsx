@@ -11,14 +11,10 @@ export default function CarDetails({ car }: { car: Car }) {
     make,
     model,
     year,
-    color,
     mileage,
     price,
-    fuelType,
+    fuel_type,
     transmission,
-    engine,
-    horsepower,
-    features,
     owners,
   } = car;
 
@@ -51,9 +47,6 @@ export default function CarDetails({ car }: { car: Car }) {
             <span className="font-semibold">Year:</span> {year}
           </p>
           <p>
-            <span className="font-semibold">Color:</span> {color}
-          </p>
-          <p>
             <span className="font-semibold">Mileage:</span>{" "}
             {mileage?.toLocaleString()} km
           </p>
@@ -63,27 +56,12 @@ export default function CarDetails({ car }: { car: Car }) {
         </div>
         <div className="text-lg">
           <p>
-            <span className="font-semibold">Fuel Type:</span> {fuelType}
+            <span className="font-semibold">Fuel Type:</span> {fuel_type}
           </p>
           <p>
             <span className="font-semibold">Transmission:</span> {transmission}
           </p>
-          <p>
-            <span className="font-semibold">Engine:</span> {engine}
-          </p>
-          <p>
-            <span className="font-semibold">Horsepower:</span> {horsepower} hp
-          </p>
         </div>
-      </div>
-
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Features</h2>
-        <ul className="list-disc list-inside">
-          {features.map((feature, index) => (
-            <li key={index}>{feature}</li>
-          ))}
-        </ul>
       </div>
     </div>
   );

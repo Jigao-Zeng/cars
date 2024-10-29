@@ -2,20 +2,6 @@ import { Car } from "./definitions";
 
 import { Pool } from "pg";
 
-export async function fetchCarWithId(id: string) {
-  try {
-    const response = await fetch(`https://freetestapi.com/api/v1/cars/${id}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch car with id, ressponse not ok");
-    }
-    const car: Car = await response.json();
-    return car;
-  } catch (error) {
-    console.error("Fetch car list error:", error);
-    throw new Error("Failed to fetch car with id.");
-  }
-}
-
 // Create a new pool instance for connecting to your PostgreSQL database
 const pool = new Pool({
   user: "postgres", // Your PostgreSQL username
@@ -38,5 +24,28 @@ export async function fetchAllCars() {
   } catch (error) {
     console.error("Database Error:", error);
     throw new Error("Failed to fetch cars.");
+  }
+}
+
+export async function fetchCarById(id: string) {
+  try {
+    const numericId = Number(id); // Convert the string id to a number
+
+    if (isNaN(numericId)) {
+      throw new Error("Invalid ID format. ID must be a number.");
+    }
+    const client = await pool.connect(); // Get a client from the pool
+    const result = await client.query("SELECT * FROM cars WHERE id = $1", [
+      numericId,
+    ]); // Query to fetch a car by id
+
+    const car = result.rows[0]; // Extract the first row from the result
+
+    client.release(); // Release the client back to the pool
+
+    return car;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch car by id.");
   }
 }

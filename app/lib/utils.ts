@@ -1,8 +1,8 @@
 import { Car } from "./definitions";
 
 export function getDesc(car: Car) {
-  const { year, make, model, engine } = car;
-  const description = `${year} ${make} ${model} ${engine}`;
+  const { year, make, model } = car;
+  const description = `${year} ${make} ${model}`;
   return description;
 }
 

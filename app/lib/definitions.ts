@@ -6,7 +6,7 @@ export interface Car {
   color: string;
   mileage: number;
   price: number;
-  fuelType: "Gasoline" | "Electric" | "Diesel";
+  fuel_type: "Gasoline" | "Electric" | "Diesel";
   transmission: "Automatic" | "CVT" | "Manual";
   engine: string;
   horsepower: number;

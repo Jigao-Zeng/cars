@@ -27,7 +27,7 @@ export default async function Home() {
             <div className="bg-gray-100 shadow-md p-4 rounded-md" key={c.id}>
               {/* <Image src={c?.image} width={400} height={200} alt={desc} /> */}
               <h2 className="text-lg font-bold mt-2">{desc}</h2>
-              <span className="text-xl font-semibold text-green-600">{`$${price?.toLocaleString()}`}</span>
+              <span className="text-xl font-semibold text-green-600">{`$${price.toLocaleString()}`}</span>
 
               <div className="mt-2">
                 {Object.entries(carMains).map(([k, v]) => (
@@ -40,7 +40,7 @@ export default async function Home() {
                   <span className="font-semibold">
                     {capitalize("mileage")}:{" "}
                   </span>
-                  {mileage?.toLocaleString()} kmmmm
+                  {mileage?.toLocaleString()} km
                 </p>
               </div>
 
