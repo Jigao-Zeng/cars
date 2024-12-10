@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
+    "antd": "^5.22.4",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",

@@ -15,19 +15,23 @@ export default async function Home() {
         <div className="w-full max-w-md relative">
           <Search placeholder="Search cars by model such as Corolla... " />
         </div>
+
+        <div>
+          <Link href={'/register'}>Register your car</Link>
+        </div>
       </div>
 
       {/* Cars Listing Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {allCars.map((c: Car) => {
-          const { make, model, year, mileage, price } = c;
+          const { make, model, year } = c;
           const carMains = { make, model, year };
           const desc = getDesc(c);
           return (
             <div className="bg-gray-100 shadow-md p-4 rounded-md" key={c.id}>
               {/* <Image src={c?.image} width={400} height={200} alt={desc} /> */}
               <h2 className="text-lg font-bold mt-2">{desc}</h2>
-              <span className="text-xl font-semibold text-green-600">{`$${price.toLocaleString()}`}</span>
+
 
               <div className="mt-2">
                 {Object.entries(carMains).map(([k, v]) => (
@@ -36,12 +40,12 @@ export default async function Home() {
                     {v}
                   </p>
                 ))}
-                <p className="text-gray-600">
+                {/* <p className="text-gray-600">
                   <span className="font-semibold">
                     {capitalize("mileage")}:{" "}
                   </span>
                   {mileage?.toLocaleString()} km
-                </p>
+                </p> */}
               </div>
 
               <Link href={`/cars/${c.id}`}>
