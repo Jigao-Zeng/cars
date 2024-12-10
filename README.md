@@ -11,7 +11,12 @@ This is a car website, the home page displays a list of cars, the car details pa
 
 run on local:
 
+install and set up postgres sql, create db called car_db, and create a table named cars
+
+
+
 ```bash
+sudo service postgresql start
 nvm use 20.12
 pnpm i
 pnpm dev
