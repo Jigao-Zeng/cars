@@ -3,7 +3,7 @@ Frontend with React
 Backend with Node.js
 
 ### Tech Stack:
-### Frontend Stack:
+### Frontend:
 - **React with Next.js**
 - **Typescript**
 - **TailwindCSS**
