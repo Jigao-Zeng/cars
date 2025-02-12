@@ -3,12 +3,14 @@ Frontend with React
 Backend with Node.js
 
 ### Tech Stack:
-
+### Frontend Stack:
 - **React with Next.js**
 - **Typescript**
 - **TailwindCSS**
 - **GSAP**
+### Backend:
 - **Node.js**
+- **PostgresSql.js**
 
 ## Getting Started
 
