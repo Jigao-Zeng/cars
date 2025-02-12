@@ -1,4 +1,6 @@
 This is a car website, the home page displays a list of cars, the car details page displays more info of the car you interested.
+Frontend with React
+Backend with Node.js
 
 ### Tech Stack:
 
@@ -6,6 +8,7 @@ This is a car website, the home page displays a list of cars, the car details pa
 - **Typescript**
 - **TailwindCSS**
 - **GSAP**
+- **Node.js**
 
 ## Getting Started
 
