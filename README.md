@@ -29,6 +29,4 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Vercel deploy link
 
-https://next-dev-test.vercel.app/
